@@ -18,6 +18,7 @@ describe('graph', function() {
   it('should store values as nodes that were inserted', function() {
     graph.addNode('kittens');
     expect(graph.contains('kittens')).to.equal(true);
+    expect(graph.contains('dragons')).to.equal(false);
   });
 
   it('should remove nodes that were inserted', function() {

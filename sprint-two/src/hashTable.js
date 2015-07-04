@@ -3,17 +3,20 @@ var HashTable = function(){
   this._storage = LimitedArray(this._limit);
 };
 
-HashTable.prototype.insert = function(k, v){
-  var i = getIndexBelowMaxForKey(k, this._limit);
+HashTable.prototype.insert = function(key, val){
+  var i = getIndexBelowMaxForKey(key, this._limit);
+  this._storage[key]=val
 };
 
-HashTable.prototype.retrieve = function(k){
-  var i = getIndexBelowMaxForKey(k, this._limit);
+HashTable.prototype.retrieve = function(key){
+  var i = getIndexBelowMaxForKey(key, this._limit);
+  var returnableKey = this._storage[key]
+  return returnableKey !== undefined ? returnableKey : null
 
 };
 
-HashTable.prototype.remove = function(k){
-
+HashTable.prototype.remove = function(key){
+  delete this._storage[key]
 };
 
 
